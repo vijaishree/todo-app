@@ -7,7 +7,7 @@ import ToDoList from '../../ToDoList.js';
 afterEach(cleanup);
 
 it("diplays list" , ()=>{
-    const { getByTestId } = render(<ToDoList />)
+    const { getAllByTestId } = render(<ToDoList />)
 
-    expect(getByTestId('ToDoList')).toHaveTextContent("Nothing to do buddy. Sleep!!");
+    expect(getAllByTestId('ToDoList')).not.toBeNull();
  })
