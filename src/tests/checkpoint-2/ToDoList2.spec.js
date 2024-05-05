@@ -4,6 +4,7 @@ import act from 'react';
 import {getAllByTestId, render,cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ToDoList from '../../ToDoList.js';
+import TodoApp from '../../Todo-app.js';
 
 afterEach(cleanup);
 
@@ -11,7 +12,7 @@ it("diplays list" , async ()=>{
 
     let list = ["Read SpringBoot", "Complete assignments", "Prepare breakfast", "Sleep for 2 hours", "Take a shower"]
 
-    const {getAllByTestId} = render(<ToDoList toDoList={list}/>)
+    const {getAllByTestId} = render(<ToDoList toDoList = {list} />)
     
     expect(getAllByTestId('ToDoList')).not.toBeNull();
     expect(getAllByTestId("ToDoList")[0].textContent).toEqual("Read SpringBoot");
