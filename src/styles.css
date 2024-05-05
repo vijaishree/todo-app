@@ -10,3 +10,7 @@
 .ToDoList{
   text-align: center;
 }
+
+.button{
+  position: inline-block;
+}
