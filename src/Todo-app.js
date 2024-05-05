@@ -5,7 +5,7 @@ import {useState} from 'react';
 
 export default function TodoApp(){
     const [list, setList] = useState(["Read SpringBoot", "Complete assignments", "Prepare breakfast", "Sleep for 2 hours", "Take a shower"]);
-    const [reseter , setReseter] = useState(false);
+    
     const [ strike , setStrike] = useState(Array(list.length).fill(false));
     
     
@@ -44,7 +44,7 @@ export default function TodoApp(){
         <>
         <Header />
         
-        <ToDoList toDoList = {list} onHandleClick = {handleStrikeThroughClick}  reset={reseter}/> 
+        <ToDoList toDoList = {list} onHandleClick = {handleStrikeThroughClick}  /> 
         
         <RemoveButton onClick={handleClick}  />
 
