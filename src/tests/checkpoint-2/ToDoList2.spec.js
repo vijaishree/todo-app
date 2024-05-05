@@ -8,8 +8,12 @@ import ToDoList from '../../ToDoList.js';
 afterEach(cleanup);
 
 it("diplays list" , async ()=>{
-    const {getAllByTestId} = render(<ToDoList />)
+
+    let list = ["Read SpringBoot", "Complete assignments", "Prepare breakfast", "Sleep for 2 hours", "Take a shower"]
+
+    const {getAllByTestId} = render(<ToDoList toDoList={list}/>)
     
+    expect(getAllByTestId('ToDoList')).not.toBeNull();
     expect(getAllByTestId("ToDoList")[0].textContent).toEqual("Read SpringBoot");
     expect(getAllByTestId('ToDoList')[1].textContent).toEqual("Complete assignments");
     expect(getAllByTestId('ToDoList')[2].textContent).toEqual("Prepare breakfast");
