@@ -1,54 +1,60 @@
-import RemoveButton from './RemoveButton.js'
+import ToDoList from "./ToDoList";
+import RemoveButton from "./RemoveButton";
 import Header from './Header/Header.js'
-import ToDoList from './ToDoList.js'
-import {useState} from 'react';
+import { useState } from "react";
 
-export default function TodoApp(){
-    const [list, setList] = useState(["Read SpringBoot", "Complete assignments", "Prepare breakfast", "Sleep for 2 hours", "Take a shower"]);
-    
-    const [ strike , setStrike] = useState(Array(list.length).fill(false));
-    
-    
-    function handleStrikeThroughClick(indexOfSelectedLine){
-        
-        let newStrike = strike.slice();
+export default function ToDoApp(){
 
-        if(newStrike[indexOfSelectedLine]===true) newStrike[indexOfSelectedLine] = false ;
+    const [list , setList] = useState(["Read SpringBoot", 
+                                        "Complete assignments",
+                                        "Prepare breakfast",
+                                        "Sleep for 2 hours",
+                                        "Take a shower"]);
 
-        else newStrike[indexOfSelectedLine] = true ;
-        
-        setStrike([...newStrike]);
+    const [completed , setCompleted] = useState(Array(5).fill(false));
 
-    
+    function handleStrikeThrough(id){
+
+        completed[id] = !completed[id];
+
+        setCompleted([...completed]);
     }
 
-    function handleClick(){
+    function onRemoveClick(){
 
         let newlist = [];
-            strike.map((bool,index) => {
+
+        completed.map((bool,index) => {
+
                 if(bool === false) newlist.push(list[index]);
-            })
+
+                else completed[index] = false;
+
+        })
             
-        
+        setCompleted([...completed]);
+
+        if(newlist.length === 0) newlist.push(["Nothing left Buddy!Sleep!"]);
+
         setList([...newlist]);
-
-        strike.map((val,index) => {strike[index] = false});
-
-        setReseter(true);
-
-        console.log(strike);
-        
     }
-    
+
     return(
         <>
+
         <Header />
         
-        <ToDoList toDoList = {list} onHandleClick = {handleStrikeThroughClick}  /> 
+        {list.map((value,index) => (
+            <div key = {index}>
+            <ToDoList value={value}
+                      key={index}
+                      id={index}
+                      style= {{textDecoration : completed[index] ? 'line-through' : 'none'}}
+                      onClick={handleStrikeThrough}/>
+            </div>
+        ))}
         
-        <RemoveButton onClick={handleClick}  />
-
+        <RemoveButton onClick = {onRemoveClick}/>
         </>
     )
-    
 }

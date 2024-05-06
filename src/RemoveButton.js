@@ -1,8 +1,5 @@
-
-
-export default function RemoveButton({onClick }){
-
+export default function RemoveButton({onClick}){
     return(
-        <button className="button" data-testid="RemoveButton" onClick= {onClick} >Remove</button>
-    );
+        <button className="RemoveButton" onClick={onClick} data-testid="RemoveButton" >Remove</button>
+    )
 }
