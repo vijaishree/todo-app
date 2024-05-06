@@ -47,7 +47,6 @@ export default function ToDoApp(){
         {list.map((value,index) => (
             <div key = {index}>
             <ToDoList value={value}
-                      key={index}
                       id={index}
                       style= {{textDecoration : completed[index] ? 'line-through' : 'none'}}
                       onClick={handleStrikeThrough}/>
