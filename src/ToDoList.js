@@ -1,7 +1,11 @@
-export default function ToDoList({value,key,id,style,onClick}){
+export default function ToDoList({list ,completed,onClick}){
+
   return(
       <>
-      <div key={id} style={style} className="ToDoList" onClick={()=>onClick(id)} data-testid="ToDoList">{value}</div>
+      {list.map((value,index) => <div key={index}
+                                      style={{textDecoration : completed[index] ? 'line-through' : 'none'}}
+                                      className="ToDoList"
+                                      onClick={()=>onClick(index)}>{value}</div>)}
       </>
   )
 }

@@ -10,6 +10,8 @@ export default function ToDoApp(){
                                         "Prepare breakfast",
                                         "Sleep for 2 hours",
                                         "Take a shower"]);
+    
+    const noToDo = ["Nothing left buddy"];
 
     const [completed , setCompleted] = useState(Array(5).fill(false));
 
@@ -22,7 +24,7 @@ export default function ToDoApp(){
 
     function onRemoveClick(){
 
-        let newlist = [];
+        const newlist = [];
 
         completed.map((bool,index) => {
 
@@ -34,9 +36,16 @@ export default function ToDoApp(){
             
         setCompleted([...completed]);
 
-        if(newlist.length === 0) newlist.push(["Nothing left Buddy!Sleep!"]);
+        isEmpty(newlist);
 
-        setList([...newlist]);
+    }
+
+    function isEmpty(checkList){
+       
+        if(checkList.length < 1 || checkList.every((value) => (value === undefined))) checkList.push([...noToDo]); 
+
+        setList([...checkList]);
+
     }
 
     return(
@@ -44,14 +53,7 @@ export default function ToDoApp(){
 
         <Header />
         
-        {list.map((value,index) => (
-            <div key = {index}>
-            <ToDoList value={value}
-                      id={index}
-                      style= {{textDecoration : completed[index] ? 'line-through' : 'none'}}
-                      onClick={handleStrikeThrough}/>
-            </div>
-        ))}
+        <ToDoList   list = {list} completed = {completed} onClick={handleStrikeThrough}/>
         
         <RemoveButton onClick = {onRemoveClick}/>
         </>
