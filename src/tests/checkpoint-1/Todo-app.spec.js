@@ -3,7 +3,7 @@ import {getAllByTestId, render,cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 
-import Header from '../../Header/Header.js';
+import Header from '../../main/org/example/Header/Header.js';
 
 afterEach(cleanup);
 

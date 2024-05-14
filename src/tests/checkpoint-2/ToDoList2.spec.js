@@ -4,7 +4,7 @@ import act from 'react';
 import {getAllByTestId, render,cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import ToDoApp from '../../ToDoApp/Todo-app.js';
+import ToDoApp from '../../main/org/example/ToDoApp/Todo-app.js';
 
 afterEach(cleanup);
 

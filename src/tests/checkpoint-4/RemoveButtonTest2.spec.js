@@ -1,9 +1,9 @@
 import React from 'react';
 import {getAllByTestId, render,cleanup, getByTestId, fireEvent, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import RemoveButton from '../../Button/RemoveButton.js'
+import RemoveButton from '../../main/org/example/Button/RemoveButton.js'
 import {jest} from '@jest/globals'
-import TodoApp from '../../ToDoApp/Todo-app.js';
+import TodoApp from '../../main/org/example/ToDoApp/Todo-app.js';
 
 describe("Testing Button" ,() => {
 
