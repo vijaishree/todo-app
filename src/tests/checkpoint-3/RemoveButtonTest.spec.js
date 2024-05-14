@@ -1,7 +1,7 @@
 import React from 'react';
 import {getAllByTestId, render,cleanup, getByTestId, fireEvent, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import RemoveButton from '../../RemoveButton.js'
+import RemoveButton from '../../Button/RemoveButton.js'
 import {jest} from '@jest/globals'
 
 afterEach(cleanup);

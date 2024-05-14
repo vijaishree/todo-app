@@ -3,8 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import act from 'react';
 import {getAllByTestId, render,cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ToDoList from '../../ToDoList.js';
-import TodoApp from '../../Todo-app.js';
+import TodoApp from '../../ToDoApp/Todo-app.js';
 
 afterEach(cleanup);
 

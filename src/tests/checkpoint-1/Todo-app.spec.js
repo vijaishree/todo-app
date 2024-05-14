@@ -1,7 +1,7 @@
 import React from 'react';
 import {getAllByTestId, render,cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import TodoApp from '../../Todo-app.js';
+
 
 import Header from '../../Header/Header.js';
 

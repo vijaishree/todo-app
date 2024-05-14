@@ -1,6 +1,6 @@
-import ToDoList from "./ToDoList";
-import RemoveButton from "./RemoveButton";
-import Header from './Header/Header.js'
+import ToDoList from "../ToDoList/ToDoList.js";
+import RemoveButton from "../Button/RemoveButton.js";
+import Header from '../Header/Header.js'
 import { useState } from "react";
 
 export default function ToDoApp(){
